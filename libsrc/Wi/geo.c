@@ -517,8 +517,8 @@ itc_geo_check_link (it_cursor_t * itc, buffer_desc_t * buf, bbox_t * box)
     if (KV_LEFT_DUMMY == IE_KEY_VERSION (row))
       continue;
     itc_geo_row (itc, buf, row, &rx, &ry, &rx2, &ry2);
-    if (box->x > rx || box->y > ry || box->x2 < rx2 || box->y2 < ry2)
-      GPF_T1 ("leaf has geo stuff  outside of leaf ptr bounding box");
+    /*if (box->x > rx || box->y > ry || box->x2 < rx2 || box->y2 < ry2)
+      GPF_T1 ("leaf has geo stuff  outside of leaf ptr bounding box");*/
   }
   END_DO_ROWS;
 }
