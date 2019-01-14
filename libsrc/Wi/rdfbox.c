@@ -465,8 +465,8 @@ bif_rdf_box (caddr_t * qst, caddr_t * err_ret, state_slot_t ** args)
   if ((0 == ro_id) && !is_complete)
     sqlr_new_error ("22023", "SR550", "Neither is_complete nor ro_id argument is set in call of rdf_box()");
   box_dtp = DV_TYPE_OF (box);
-  if (RDF_BOX_GEO_TYPE == type && DV_GEO != box_dtp && DV_LONG_INT != box_dtp)
-    sqlr_new_error ("42000",  "RDFGE",  "RDF box with a geometry RDF type and a non-geometry content");
+  /*if (RDF_BOX_GEO_TYPE == type && DV_GEO != box_dtp && DV_LONG_INT != box_dtp)
+    sqlr_new_error ("42000",  "RDFGE",  "RDF box with a geometry RDF type and a non-geometry content");*/
   switch (box_dtp)
     {
     case DV_DB_NULL:
@@ -485,8 +485,8 @@ bif_rdf_box (caddr_t * qst, caddr_t * err_ret, state_slot_t ** args)
     case DV_IRI_ID:
       sqlr_new_error ("22023", "SR559", "IRI_ID box (tag %d) is not a valid argument #1 in call of rdf_box()", box_dtp);
     }
-  if (type == RDF_BOX_GEO && box_dtp != DV_GEO)
-    sqlr_new_error ("22023", "SR559", "The RDF box of type geometry needs a spatial object as a value, not a value of type %s (%d)", dv_type_title (box_dtp), box_dtp);
+  /*if (type == RDF_BOX_GEO && box_dtp != DV_GEO)
+    sqlr_new_error ("22023", "SR559", "The RDF box of type geometry needs a spatial object as a value, not a value of type %s (%d)", dv_type_title (box_dtp), box_dtp);*/
   if (5 < BOX_ELEMENTS (args))
     chksum = bif_string_arg (qst, args, 5, "rdf_box");
   else
